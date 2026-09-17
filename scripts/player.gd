@@ -1,27 +1,22 @@
 extends CharacterBody3D
+class_name Player
 
-# MOVIMIENTO 3D + DOBLE SALTO
-# Perfil de movimiento elegido: personaje agil y rapido
+@export var speed: float = 7.0            
+@export var acceleration: float = 20.0    
+@export var deceleration: float = 25.0    
+@export var air_control: float = 0.7      
+@export var rotation_speed: float = 12.0  
 
-
-## -- Movimiento horizontal --
-@export var speed: float = 7.0            # velocidad máxima (m/s)
-@export var acceleration: float = 20.0    # qué tan rápido llega a velocidad máxima
-@export var deceleration: float = 25.0    # qué tan rápido frena al soltar el input
-@export var air_control: float = 0.7      # % de control que se conserva en el aire (0-1)
-@export var rotation_speed: float = 12.0  # velocidad de giro del personaje hacia adelante
-
-## Salto / doble salto 
-@export var jump_velocity: float = 6.5        # impulso del primer salto
-@export var double_jump_velocity: float = 5.5 # impulso del segundo salto (algo menor)
-@export var gravity_scale: float = 1.0        # multiplicador sobre la gravedad del proyeto
+@export var jump_velocity: float = 6.5        
+@export var double_jump_velocity: float = 5.5 
+@export var gravity_scale: float = 2.0        
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jumps_left: int = 2
 var _input_dir: Vector3 = Vector3.ZERO
 
-@onready var visual: Node3D = $Visual   # nodo (cápsula + nariz) que rota hacia adelante
+@onready var visual: Node3D = $Visual   
 
 
 func _physics_process(delta: float) -> void:
@@ -42,8 +37,7 @@ func _handle_gravity(delta: float) -> void:
 
 
 func _handle_jump() -> void:
-	if Input.is_action_just_pressed("jump") and jumps_left > 0:
-		# Primer salto desde el piso vs. segundo salto en el aire
+	if Input.is_action_just_pressed("saltito") and jumps_left > 0:
 		if jumps_left == 2:
 			velocity.y = jump_velocity
 		else:
@@ -53,12 +47,11 @@ func _handle_jump() -> void:
 
 func _handle_movement(delta: float) -> void:
 	var input_vector := Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
+		Input.get_action_strength("derechita") - Input.get_action_strength("izquierdita"),
+		Input.get_action_strength("atras") - Input.get_action_strength("delantito")
 	)
 	input_vector = input_vector.normalized() if input_vector.length() > 1.0 else input_vector
 
-	# Movimiento relativo a la cámara (asumiendo un nodo Camera3D o SpringArm en la escena)
 	var cam := get_viewport().get_camera_3d()
 	var forward := Vector3.FORWARD
 	var right := Vector3.RIGHT

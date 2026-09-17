@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c1efmlcr3jfw6"]
+
+[ext_resource type="Script" uid="uid://dvjd1brq5mwbe" path="res://Escenas/hud.gd" id="1_qlp27"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1283630008]
+script = ExtResource("1_qlp27")
+
+[node name="CoinLabel" type="Label" parent="." unique_id=179918623]
+offset_top = 8.0
+offset_right = 1.0
+offset_bottom = 31.0
+text = "Monedas:0"

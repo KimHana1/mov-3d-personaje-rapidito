@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5ko54vycotub"]
 
-[ext_resource type="Script" uid="uid://ctt8ghdvr33f2" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://ctt8ghdvr33f2" path="res://scripts/player.gd" id="1_cnkc8"]
+[ext_resource type="Script" uid="uid://dth5mytb6qodb" path="res://scripts/camera_3d.gd" id="2_i8vih"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
 
@@ -9,8 +10,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onrkg"]
 albedo_color = Color(0, 0.101960786, 0.26666668, 1)
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=205545244 groups=["Player"]]
-script = ExtResource("1_4flbx")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkc8"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=205545244 groups=["player"]]
+script = ExtResource("1_cnkc8")
 
 [node name="Visual" type="Node3D" parent="." unique_id=1461502696]
 
@@ -23,8 +26,8 @@ mesh = SubResource("SphereMesh_4flbx")
 surface_material_override/0 = SubResource("StandardMaterial3D_onrkg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=134269532]
+shape = SubResource("CapsuleShape3D_cnkc8")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1653257269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6736016, 3.5730627)
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1472422004]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1294997793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0057320595, 0, -0.59776115)
+script = ExtResource("2_i8vih")

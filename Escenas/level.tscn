@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://k84ovi2iso7h"]
+
+[ext_resource type="Texture2D" uid="uid://dgbvw7a3nqo1o" path="res://assets/583395c475b40168ff46a6c1eee00bb43187037b.png" id="1_3kjvw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1lqj"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.7224205, 0.52418965, 0, 1)
+albedo_texture = ExtResource("1_3kjvw")
+
+[node name="Level" type="Node3D" unique_id=1486066817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 66.26863, 7.1888237)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1455290963]
+transform = Transform3D(0.06115612, 0, 0, 0, 1, 0, 0, 0, 0.13188389, 0, 43.62178, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1407608760]
+transform = Transform3D(4.6000004, 0, 0, 0, 1, 0, 0, 0, 2.38, -553.7274, 0.5, 88.06002)
+size = Vector3(329, 2, 75)
+material = SubResource("StandardMaterial3D_a1lqj")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=99325004]
+transform = Transform3D(2.2, 0, 0, 0, 1, 0, 0, 0, 1.6800001, -185.17474, 1.1224442, 90.152565)
+operation = 2
+inner_radius = 70.622
+outer_radius = 14.751
+sides = 34
