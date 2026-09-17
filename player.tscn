@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b5ko54vycotub"]
+
+[ext_resource type="Script" uid="uid://ctt8ghdvr33f2" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4flbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onrkg"]
+albedo_color = Color(0, 0.101960786, 0.26666668, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=205545244 groups=["Player"]]
+script = ExtResource("1_4flbx")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1461502696]
+
+[node name="Body" type="MeshInstance3D" parent="Visual" unique_id=2094095426]
+mesh = SubResource("CapsuleMesh_sh265")
+
+[node name="Nose" type="MeshInstance3D" parent="Visual" unique_id=1292618165]
+transform = Transform3D(0.32946754, 0, 0, 0, 0.4122817, 0, 0, 0, 0.35316205, 0.009151757, 0.40031135, -0.3978212)
+mesh = SubResource("SphereMesh_4flbx")
+surface_material_override/0 = SubResource("StandardMaterial3D_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=134269532]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1653257269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6736016, 3.5730627)
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1472422004]
