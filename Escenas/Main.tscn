@@ -10,7 +10,7 @@
 [node name="Node3D" type="Node3D" unique_id=1447336419]
 
 [node name="CharacterBody3D" parent="." unique_id=205545244 instance=ExtResource("1_uu6xs")]
-transform = Transform3D(-0.062058866, 0, -0.9980725, 0, 1, 0, 0.9980725, 0, -0.062058866, -42.548073, 45.615643, 16.027903)
+transform = Transform3D(-0.062058866, 0, -0.9980725, 0, 1, 0, 0.9980725, 0, -0.062058866, -79.270744, 45.615643, 16.027903)
 
 [node name="Level" parent="." unique_id=1486066817 instance=ExtResource("2_r0du0")]
 transform = Transform3D(0.9999409, -0.006737221, -0.008539699, 0.0068290103, 0.9999187, 0.010764358, 0.008466477, -0.010822044, 0.9999056, 0, -0.31121826, 7.1888237)

@@ -11,6 +11,9 @@ class_name Player
 @export var double_jump_velocity: float = 5.5 
 @export var gravity_scale: float = 2.0        
 
+@export var fall_death_y: float = -10.0       # si la Y del jugador baja de esto, muere
+@export var respawn_point: NodePath           # arrastrá acá un Marker3D (opcional)
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jumps_left: int = 2
@@ -29,6 +32,8 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		jumps_left = 2
+
+	_check_fall_death()
 
 
 func _handle_gravity(delta: float) -> void:
@@ -85,3 +90,17 @@ func _orient_visual(delta: float) -> void:
 	if _input_dir.length() > 0.1:
 		var target_angle := atan2(_input_dir.x, _input_dir.z)
 		visual.rotation.y = lerp_angle(visual.rotation.y, target_angle, rotation_speed * delta)
+
+
+func _check_fall_death() -> void:
+	if global_position.y < fall_death_y:
+		die()
+
+
+func die() -> void:
+	if respawn_point != NodePath("") and has_node(respawn_point):
+		var spawn: Node3D = get_node(respawn_point)
+		velocity = Vector3.ZERO
+		global_position = spawn.global_position
+	else:
+		get_tree().reload_current_scene()
