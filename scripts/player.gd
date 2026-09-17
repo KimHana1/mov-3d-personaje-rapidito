@@ -4,10 +4,10 @@ class_name Player
 @export var speed: float = 7.0            
 @export var acceleration: float = 20.0    
 @export var deceleration: float = 25.0    
-@export var air_control: float = 0.7      
+@export var air_control: float = 0.9     
 @export var rotation_speed: float = 12.0  
 
-@export var jump_velocity: float = 6.5        
+@export var jump_velocity: float = 8.5        
 @export var double_jump_velocity: float = 5.5 
 @export var gravity_scale: float = 2.0        
 

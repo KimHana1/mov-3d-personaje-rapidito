@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5ko54vycotub" path="res://Escenas/player.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://k84ovi2iso7h" path="res://Escenas/level.tscn" id="2_r0du0"]
-[ext_resource type="PackedScene" uid="uid://b77qvpttis0p" path="res://coin.tscn" id="3_j5xpj"]
+[ext_resource type="PackedScene" uid="uid://b77qvpttis0p" path="res://Escenas/coin.tscn" id="3_j5xpj"]
 [ext_resource type="PackedScene" uid="uid://c1efmlcr3jfw6" path="res://Escenas/Hud.tscn" id="4_qpgdo"]
 
 [sub_resource type="Environment" id="Environment_cm0pq"]
@@ -23,7 +23,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.68314, 65.69466, 0)
 light_energy = 10.69
 
 [node name="coin" parent="." unique_id=1887761105 instance=ExtResource("3_j5xpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5033045, 46.35139, 13.365587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5033045, 46.35139, 17.380909)
+rotation_speed = null
+
+[node name="coin2" parent="." unique_id=75388768 instance=ExtResource("3_j5xpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.448486, 46.35139, 17.725555)
+rotation_speed = null
+
+[node name="coin3" parent="." unique_id=414505604 instance=ExtResource("3_j5xpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.768682, 46.35139, 18.422195)
 rotation_speed = null
 
 [node name="CanvasLayer" parent="." unique_id=1283630008 instance=ExtResource("4_qpgdo")]

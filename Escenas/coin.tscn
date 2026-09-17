@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b77qvpttis0p"]
 
-[ext_resource type="Script" uid="uid://c3lddody6i5eo" path="res://coin.gd" id="1_d5gmh"]
+[ext_resource type="Script" uid="uid://c3lddody6i5eo" path="res://scripts/coin.gd" id="1_d5gmh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0t63x"]
 

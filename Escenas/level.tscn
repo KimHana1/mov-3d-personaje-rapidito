@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://c7guq8djjjuai" path="res://Escenas/kill_zone.gd" id="3_a1lqj"]
 [ext_resource type="Script" uid="uid://cxyrlivcpq7bk" path="res://Escenas/csg_cylinder_3d_2.gd" id="4_evxt5"]
 [ext_resource type="Script" uid="uid://bf383km25amc3" path="res://Escenas/arriba.gd" id="5_khd58"]
+[ext_resource type="Script" uid="uid://bfjl02kakrlpy" path="res://Escenas/goal.gd" id="6_j4qx3"]
+[ext_resource type="Texture2D" uid="uid://xtt6m7tn21cl" path="res://icon.svg" id="6_sjvme"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1lqj"]
 vertex_color_is_srgb = true
@@ -14,10 +16,29 @@ albedo_texture = ExtResource("1_3kjvw")
 [sub_resource type="ImageTexture" id="ImageTexture_a1lqj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evxt5"]
+albedo_color = Color(11.082345, 11.88096, 0, 1)
 albedo_texture = SubResource("ImageTexture_a1lqj")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_evxt5"]
-radius = 32.085938
+height = 1.6972656
+radius = 11.76709
+
+[sub_resource type="ImageTexture" id="ImageTexture_j4qx3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt85n"]
+albedo_texture = SubResource("ImageTexture_j4qx3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4qx3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gt85n"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_07wji"]
+load_path = "res://.godot/imported/dirty-metal-texture.jpg-83382d7817a9616f07025cbaf13cf2ad.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0n10j"]
+albedo_texture = ExtResource("6_sjvme")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_07wji")
 
 [node name="Level" type="Node3D" unique_id=1486066817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 66.26863, 7.1888237)
@@ -38,19 +59,19 @@ inner_radius = 70.622
 outer_radius = 14.751
 sides = 34
 
-[node name="costadosLento" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1218145421]
-transform = Transform3D(0.013734475, 0, 0.26974386, 0, 1.9331177, 0, -1.5896853, 0, 0.0023305188, -1032.479, -6.9125366, 93.85229)
-radius = 31.76709
+[node name="costadosrapido2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1218145421]
+transform = Transform3D(-0.5710718, -0.011263258, -0.3644667, -0.003291531, 1.9362359, -0.0051955557, 0.045394782, -0.0012986324, -4.5854135, -935.2194, -6.701088, 129.71375)
+radius = 9.637207
 height = 10.367
 sides = 24
 material = SubResource("StandardMaterial3D_evxt5")
 script = ExtResource("2_3kjvw")
 
-[node name="KillZone" type="Area3D" parent="CSGCombiner3D/costadosLento" unique_id=276927717]
+[node name="KillZone" type="Area3D" parent="CSGCombiner3D/costadosrapido2" unique_id=276927717]
 script = ExtResource("3_a1lqj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/costadosLento/KillZone" unique_id=1772163346]
-transform = Transform3D(0.99999523, 0, 1.5133992e-09, 0, 1, 0, -7.8231096e-08, 0, 0.9999995, 0, 4.499199, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/costadosrapido2/KillZone" unique_id=1772163346]
+transform = Transform3D(0.979216, -1.22818165e-08, -2.9802322e-08, 2.910383e-11, 1, -1.1641532e-09, -7.636845e-08, 1.7462298e-10, 0.30339032, 0, 4.3478355, -7.6293945e-06)
 shape = SubResource("CylinderShape3D_evxt5")
 
 [node name="costadosRapido" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1072805966]
@@ -69,7 +90,7 @@ transform = Transform3D(0.9999973, 0, 1.6298145e-09, 0, 1, 0, -1.8626451e-08, 0,
 shape = SubResource("CylinderShape3D_evxt5")
 
 [node name="arriba" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1466264078]
-transform = Transform3D(0.025987253, 0, 0.268884, 0, 1.9331177, 0, -3.0078735, 0, 0.00232309, -921.1418, -6.9125366, 83.189415)
+transform = Transform3D(0.025786242, 0, 0.15725319, 0, 1.9331177, 0, -2.9846084, 0, 0.001358628, -440.34, -6.9125366, 83.189415)
 radius = 31.76709
 height = 10.367
 sides = 24
@@ -83,9 +104,37 @@ script = ExtResource("3_a1lqj")
 transform = Transform3D(0.99999523, 0, 1.5133992e-09, 0, 1, 0, -7.8231096e-08, 0, 0.9999995, 0, 4.499199, 0)
 shape = SubResource("CylinderShape3D_evxt5")
 
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=1599616878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -654.0637, -28, 90.98913)
+operation = 2
+inner_radius = 155.768
+outer_radius = 17.65
+sides = 4
+ring_sides = 4
+
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1014849846]
 transform = Transform3D(5.2813725, 0, 0, 0, 1, 0, 0, 0, 2.0311542, -76.01441, 45.250862, 12.882824)
 
-[connection signal="body_entered" from="CSGCombiner3D/costadosLento/KillZone" to="CSGCombiner3D/costadosLento/KillZone" method="_on_body_entered"]
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=1471595510]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2" unique_id=1760478311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.29132, 47.02942, 13.815638)
+size = Vector3(3.7597656, 1, 19.457169)
+material = SubResource("StandardMaterial3D_gt85n")
+
+[node name="Goal" type="Area3D" parent="CSGCombiner3D2/CSGBox3D" unique_id=718668669]
+transform = Transform3D(3.6051002, 0, 0, 0, 1, 0, 0, 0, 22.41702, -1.7195816, 0.1976242, -0.021539688)
+script = ExtResource("6_j4qx3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D2/CSGBox3D/Goal" unique_id=361987691]
+shape = SubResource("BoxShape3D_j4qx3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGCombiner3D2/CSGBox3D/Goal" unique_id=2134261259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52607584, 0, 0)
+mesh = SubResource("BoxMesh_gt85n")
+surface_material_override/0 = SubResource("StandardMaterial3D_0n10j")
+
+[connection signal="body_entered" from="CSGCombiner3D/costadosrapido2/KillZone" to="CSGCombiner3D/costadosrapido2/KillZone" method="_on_body_entered"]
 [connection signal="body_entered" from="CSGCombiner3D/costadosRapido/KillZone" to="CSGCombiner3D/costadosRapido/KillZone" method="_on_body_entered"]
 [connection signal="body_entered" from="CSGCombiner3D/arriba/KillZone" to="CSGCombiner3D/arriba/KillZone" method="_on_body_entered"]
